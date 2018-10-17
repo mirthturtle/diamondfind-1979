@@ -23,14 +23,23 @@ class Output
 
   def self.display_node( node )
     self.clear
-    puts node['node_text']
-    puts "\n#{ node['left_text'] }      #{ node['right_text'] }"
+    puts word_wrap( node['node_text'] )
+    puts "\n#{ node['left_text'] }           #{ node['right_text'] }"
   end
 
   def self.display_item( item )
     self.clear
     puts "#{item['name']}     Value: #{item['value']}\n"
-    puts item['legend']
+    puts word_wrap( item['legend'] )
   end
+
+  private
+
+    # borrowed from ActionView
+    def self.word_wrap(text, line_width: 80, break_sequence: "\n")
+      text.split("\n").collect! do |line|
+        line.length > line_width ? line.gsub(/(.{1,#{line_width}})(\s+|$)/, "\\1#{break_sequence}").strip : line
+      end * break_sequence
+    end
 
 end
