@@ -69,7 +69,6 @@ class DiamondFind
       Output.api_down
     end
 
-    exit
   end
 
 end
