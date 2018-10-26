@@ -6,6 +6,7 @@ class Output
     d_col = random_colour
     f_col = random_colour
     puts "wolfOS presents:\n\n"
+    print_diamond
     puts ' ____ ___    _    __  __  ___  _   _ ____  '.colorize(d_col) + '  _____ ___ _   _ ____  '.colorize(f_col) + "\n"
     puts '|  _ \_ _|  / \  |  \/  |/ _ \| \ | |  _ \ '.colorize(d_col) + ' |  ___|_ _| \ | |  _ \ '.colorize(f_col) + "\n"
     puts '| | | | |  / _ \ | |\/| | | | |  \| | | | |'.colorize(d_col) + ' | |_   | ||  \| | | | |'.colorize(f_col) + "\n"
@@ -39,6 +40,12 @@ class Output
 
   def self.display_item( item )
     self.clear
+    print_diamond
+    puts "#{item['name']}         #{ item['value'] > 0 ? ("Value: " + item['value'].to_s) : "" }\n".colorize(random_colour)
+    puts word_wrap( item['legend'] )
+  end
+
+  def self.print_diamond
     puts "      __________________            "
     puts "    .-'  \\ _.-''-._ /  '-.         "
     puts "  .-/\\   .'.      .'.   /\\-.      "
@@ -51,8 +58,6 @@ class Output
     puts "         '. \\    / .'              "
     puts "           '.\\  /.'                "
     puts "             '\\/'                   \n"
-    puts "#{item['name']}         #{ item['value'] > 0 ? ("Value: " + item['value'].to_s) : "" }\n".colorize(random_colour)
-    puts word_wrap( item['legend'] )
   end
 
   private
