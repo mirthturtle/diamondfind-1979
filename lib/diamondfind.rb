@@ -25,10 +25,9 @@ class DiamondFind
       Output.display_node( current_node )
       Output.press_any_key
 
-      current_node = reader.move_to( current_node['linked_node'] )
+      input = Input.get
 
       # Main Game Loop
-      input = Input.get
       while ![Input.break, Input.reset].include?( input )
 
         if pop_item
@@ -64,7 +63,6 @@ class DiamondFind
       end
 
       Output.clear
-      Output.exiting
     else
       Output.api_down
     end
