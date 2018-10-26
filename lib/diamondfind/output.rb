@@ -3,8 +3,16 @@ require 'colorize'
 class Output
 
 	def self.title
-    puts "\n\nwolfOS presents:\n"
-    puts "DIAMOND FIND: The Con Job\n\n"
+    d_col = random_colour
+    f_col = random_colour
+    puts "wolfOS presents:\n\n"
+    puts ' ____ ___    _    __  __  ___  _   _ ____  '.colorize(d_col) + '  _____ ___ _   _ ____  '.colorize(f_col) + "\n"
+    puts '|  _ \_ _|  / \  |  \/  |/ _ \| \ | |  _ \ '.colorize(d_col) + ' |  ___|_ _| \ | |  _ \ '.colorize(f_col) + "\n"
+    puts '| | | | |  / _ \ | |\/| | | | |  \| | | | |'.colorize(d_col) + ' | |_   | ||  \| | | | |'.colorize(f_col) + "\n"
+    puts '| |_| | | / ___ \| |  | | |_| | |\  | |_| |'.colorize(d_col) + ' |  _|  | || |\  | |_| |'.colorize(f_col) + "\n"
+    puts '|____/___/_/   \_\_|  |_|\___/|_| \_|____/ '.colorize(d_col) + ' |_|   |___|_| \_|____/ '.colorize(f_col) + "\n"
+    puts "                                                       THE CON JOB\n\n"
+    puts "A mini-sequel to the original diamond-finding adventure, DIAMOND FIND\n"
 	end
 
   def self.clear
@@ -20,7 +28,7 @@ class Output
   end
 
   def self.press_any_key
-    puts "\n\nPRESS ANY KEY\n".colorize( random_colour )
+    puts "\nPRESS ANY BUTTON\n".colorize( random_colour )
   end
 
   def self.display_node( node )
@@ -45,7 +53,7 @@ class Output
     end
 
     def self.random_colour
-      colours = [:red, :light_red, :green, :light_green, :yellow, :light_yellow, :blue, :light_blue, :magenta, :light_magenta, :cyan, :light_cyan]
+      colours = [:red, :light_red, :green, :light_green, :yellow, :light_yellow, :light_blue, :magenta, :light_magenta, :cyan, :light_cyan]
       colours[ Random.new.rand(colours.length) ]
     end
 
