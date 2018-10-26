@@ -39,7 +39,19 @@ class Output
 
   def self.display_item( item )
     self.clear
-    puts "#{item['name']}         #{ item['value'] > 0 ? ("Value: " + item['value'].to_s) : "" }\n\n".colorize(random_colour)
+    puts "      __________________            "
+    puts "    .-'  \\ _.-''-._ /  '-.         "
+    puts "  .-/\\   .'.      .'.   /\\-.      "
+    puts " _'/  \\.'   '.  .'   './  \\'_     "
+    puts ":======:======::======:======:      "
+    puts " '. '.  \\     ''     /  .' .'      "
+    puts "   '. .  \\   :  :   /  . .'        "
+    puts "     '.'  \\  '  '  /  '.'          "
+    puts "       ':  \\:    :/  :'            "
+    puts "         '. \\    / .'              "
+    puts "           '.\\  /.'                "
+    puts "             '\\/'                   \n"
+    puts "#{item['name']}         #{ item['value'] > 0 ? ("Value: " + item['value'].to_s) : "" }\n".colorize(random_colour)
     puts word_wrap( item['legend'] )
   end
 
