@@ -33,8 +33,8 @@ class Output
 
   def self.display_node( node )
     self.clear
-    puts word_wrap( node['node_text'] )
-    puts "\n\n\n#{ node['left_text'] }".colorize( random_colour ) + "           #{ node['right_text'] }".colorize( random_colour )
+    puts word_wrap( node['node_text'] ).gsub('—', '--')
+    puts "\n\n\n#{ node['left_text'] }".colorize( random_colour ) + "                #{ node['right_text'] }".colorize( random_colour )
   end
 
   def self.display_item( item )
