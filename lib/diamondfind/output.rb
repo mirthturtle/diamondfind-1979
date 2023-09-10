@@ -2,10 +2,33 @@ require 'colorize'
 
 class Output
 
-	def self.title
+  def self.please_choose_df
+    puts "\nPlease choose which version you'd like to play:\n\n"
+    puts "[1]  Diamond Find: 1979"
+    puts "The original diamond-finding adventure, now in crisp terminal monospace.\n\n"
+
+    puts "[2]  Diamond Find: The Con Job"
+    puts "The mini-sequel written for Hal-Con 2018.\n\n"
+  end
+
+  def self.orig_title
     d_col = random_colour
     f_col = random_colour
-    puts "wolfOS presents:\n\n"
+    puts "wolfOS and Mirth Turtle presents:\n\n"
+    print_diamond
+    puts ' ____ ___    _    __  __  ___  _   _ ____  '.colorize(d_col) + '  _____ ___ _   _ ____  '.colorize(f_col) + "\n"
+    puts '|  _ \_ _|  / \  |  \/  |/ _ \| \ | |  _ \ '.colorize(d_col) + ' |  ___|_ _| \ | |  _ \ '.colorize(f_col) + "\n"
+    puts '| | | | |  / _ \ | |\/| | | | |  \| | | | |'.colorize(d_col) + ' | |_   | ||  \| | | | |'.colorize(f_col) + "\n"
+    puts '| |_| | | / ___ \| |  | | |_| | |\  | |_| |'.colorize(d_col) + ' |  _|  | || |\  | |_| |'.colorize(f_col) + "\n"
+    puts '|____/___/_/   \_\_|  |_|\___/|_| \_|____/ '.colorize(d_col) + ' |_|   |___|_| \_|____/ '.colorize(f_col) + "\n"
+    puts "                                                       1979\n\n"
+    puts "The original diamond-finding adventure, now on the command line\n"
+  end
+
+	def self.con_title
+    d_col = random_colour
+    f_col = random_colour
+    puts "wolfOS and Mirth Turtle presents:\n\n"
     print_diamond
     puts ' ____ ___    _    __  __  ___  _   _ ____  '.colorize(d_col) + '  _____ ___ _   _ ____  '.colorize(f_col) + "\n"
     puts '|  _ \_ _|  / \  |  \/  |/ _ \| \ | |  _ \ '.colorize(d_col) + ' |  ___|_ _| \ | |  _ \ '.colorize(f_col) + "\n"
@@ -15,6 +38,10 @@ class Output
     puts "                                                       THE CON JOB\n\n"
     puts "A mini-sequel to the original diamond-finding adventure, DIAMOND FIND\n"
 	end
+
+  def self.controls
+    puts "CONTROLS: [z] left    [x] right    [q] quit    [r] reset"
+  end
 
   def self.clear
     system("clear")

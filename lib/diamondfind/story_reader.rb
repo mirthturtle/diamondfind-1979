@@ -1,14 +1,20 @@
 require 'httparty'
 
 class StoryReader
-  @@prod_story_base = "https://www.christiandewolf.com/"
+  @@prod_story_base = "https://www.mirthturtle.com/"
   @@dev_story_base  = "http://localhost:3000/"
 
-  @@story_path = "woods/stories/1/"
+  @@classic_story = "woods/stories/1/"
+  @@con_story = "woods/stories/16/"
   @@up_path    = "woods/stories/up.json"
 
-  def initialize(prod = false)
-    @story_url = (prod ? @@prod_story_base : @@dev_story_base) + @@story_path
+  def initialize(classic = true, prod = true)
+    if classic
+      @story_url = (prod ? @@prod_story_base : @@dev_story_base) + @@classic_story
+    else
+      @story_url = (prod ? @@prod_story_base : @@dev_story_base) + @@con_story
+    end
+
     @up_url    = (prod ? @@prod_story_base : @@dev_story_base) + @@up_path
     @session = nil
   end

@@ -9,9 +9,24 @@ class DiamondFind
 
   def self.start_game
     Output.clear
-    Output.title
 
-    reader = StoryReader.new
+    # Choose DF version to play
+    Output.please_choose_df
+    input = Input.get
+
+    while ![Input.classic, Input.con].include?( input )
+      input = Input.get
+    end
+    Output.clear
+
+    if input == Input.classic
+      Output.orig_title
+      reader = StoryReader.new(true)
+    else
+      Output.con_title
+      reader = StoryReader.new(false)
+    end
+
     items = []
     pop_item = false
     total_score = 0
@@ -42,9 +57,9 @@ class DiamondFind
             Output.display_node( current_node )
           else
             # move to appropriate node
-            if input == Input.left
+            if Input.left.include?( input )
               current_node = reader.move_to( current_node['left_link'] )
-            elsif input == Input.right
+            elsif Input.right.include?( input )
               current_node = reader.move_to( current_node['right_link'] )
             end
             Output.display_node( current_node )
