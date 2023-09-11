@@ -1,4 +1,4 @@
-# Diamond Find 1979
+![Diamond Find: 1979](df1979.png "Diamond Find: 1979")
 
 Diamond Find client for your command line. Or play in the web interface at: https://mirthturtle.com/diamondfind
 
